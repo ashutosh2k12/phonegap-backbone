@@ -84,7 +84,7 @@ define(function(require, exports, module) {
 						   });
 		try{
 			FB.init({ appId: "133722136790032", nativeInterface: CDV.FB, useCachedDialogs: false });
-			document.getElementById('data').innerHTML = "Connected to facebook!!";
+			alert("Connected to facebook!!");
 		}catch (e) {
 								  alert(e);
 		}
