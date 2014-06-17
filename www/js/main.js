@@ -64,6 +64,31 @@ define(function(require, exports, module) {
   initApp(GymData());
 
   function initApp(data) {
+	//FB
+	if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+	if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
+	FB.Event.subscribe('auth.login', function(response) {
+					   //    alert('auth.login event');
+						   });
+		
+		FB.Event.subscribe('auth.logout', function(response) {
+					//       alert('auth.logout event');
+						   });
+		
+		FB.Event.subscribe('auth.sessionChange', function(response) {
+					 //      alert('auth.sessionChange event');
+						   });
+		
+		FB.Event.subscribe('auth.statusChange', function(response) {
+				  //         alert('auth.statusChange event');
+						   });
+		try{
+			FB.init({ appId: "133722136790032", nativeInterface: CDV.FB, useCachedDialogs: false });
+			document.getElementById('data').innerHTML = "Connected to facebook!!";
+		}catch (e) {
+								  alert(e);
+		}
+			 
     data = GymData();
 
     var options = {

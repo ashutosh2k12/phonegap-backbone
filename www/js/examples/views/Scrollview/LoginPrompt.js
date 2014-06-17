@@ -201,11 +201,18 @@ define(function(require, exports, module) {
             // } else {
             //     alert('not logged in');
             // }}, { scope: "email" });
+			FB.login(
+			 function(response) {
+			alert("You are now logged in to facebook");
+			 },
+			 { scope: "email" }
+			 );
+			 /*
             FirebaseRef.auth.login('facebook', {
                 rememberMe: true,
                 scope: 'email,user_likes'
             });
-
+			*/
             var self = this;
             //check if FB userid exists in DB and if it does fire mypass and if it doesn't
             //fire credit card view
